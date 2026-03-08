@@ -8,7 +8,18 @@ Script automatisé pour remplacer les watermarks sur des vidéos avec un waterma
 
 **Ce logiciel est fourni uniquement à titre éducatif et de facilitation du travail personnel.**
 
-### Responsabilités légales
+### Disclaimer de responsabilité
+
+Ce projet est partagé à titre d'outil de facilitation technique uniquement. L'auteur **n'assume aucune responsabilité** pour :
+
+- L'utilisation abusive de cet outil
+- Les violations de droit d'auteur ou de propriété intellectuelle
+- Les conséquences légales découlant de l'utilisation de ce logiciel
+- Les dommages directs ou indirects causés par ce logiciel
+
+**En téléchargeant et en utilisant ce logiciel, vous acceptez d'être seul responsable de vos actions et de respecter toutes les lois applicables.**
+
+### Responsabilités légales de l'utilisateur
 
 - **Respect du droit d'auteur** : Vous êtes seul responsable de l'utilisation de ce logiciel. Ne téléchargez, traitez ou redistribuez JAMAIS de contenu vidéo sans l'autorisation explicite de l'auteur original ou du détenteur des droits d'auteur.
 - **Droit à l'image** : Le remplacement de watermarks ou la modification de vidéos ne vous autorise pas à les exploiter commercialement ou à les rediffuser sans consentement.
@@ -57,27 +68,54 @@ Script automatisé pour remplacer les watermarks sur des vidéos avec un waterma
 
 ### Installation de FFmpeg
 
-#### Windows
+#### Option 1 : Installation complète (recommandée) ✅
 
-1. Télécharger depuis : https://ffmpeg.org/download.html
-2. Extraire l'archive
+L'installation complète ajoute FFmpeg à votre variable d'environnement `PATH`, ce qui le rend accessible depuis n'importe quel dossier du système. **C'est la méthode la plus sûre et recommandée.**
+
+##### Windows
+
+1. Télécharger depuis : https://ffmpeg.org/download.html (chercher "Windows builds")
+2. Extraire l'archive complète
 3. Ajouter le dossier `bin/` à la variable d'environnement `PATH` :
    - Clic droit sur "Poste de travail" → Propriétés
-   - Variables d'environnement → PATH → Ajouter le chemin vers `bin/` de FFmpeg
-   - Redémarrer le terminal
+   - Variables d'environnement globales → PATH → Ajouter le chemin vers `bin/` de FFmpeg
+   - Redémarrer le terminal ou l'ordinateur pour appliquer les changements
 4. Vérifier : `ffmpeg -version` dans PowerShell
 
-#### macOS
+##### macOS
 
 ```bash
 brew install ffmpeg
 ```
 
-#### Linux (Ubuntu/Debian)
+##### Linux (Ubuntu/Debian)
 
 ```bash
 sudo apt-get install ffmpeg
 ```
+
+---
+
+#### Option 2 : FFmpeg portable à côté du .exe ⚠️ (non recommandé)
+
+**Vous pouvez** placer le dossier `bin/` de FFmpeg directement dans le dossier `nowatermark/` à côté de `WatermarkTool.exe`. Cela peut fonctionner dans certains cas, **mais ce n'est pas recommandé** car :
+
+- ❌ Dépend de la configuration du système
+- ❌ Peut causer des incompatibilités
+- ❌ Augmente la taille totale du projet
+
+**Si vous choisissez cette option :**
+
+```
+nowatermark/
+├── WatermarkTool.exe
+├── watermark.png
+├── ffmpeg.exe     ← À côté du .exe
+├── ffprobe.exe    ← À côté du .exe
+└── .config/
+```
+
+**Mieux vaut utiliser l'Option 1 (installation complète) pour éviter les problèmes !**
 
 ---
 
@@ -96,8 +134,8 @@ sudo apt-get install ffmpeg
 #### Cloner le projet
 
 ```bash
-git clone https://github.com/votreusername/WatermarkTool.git
-cd WatermarkTool
+git clone https://github.com/Nuxhi/remove-or-add-watermark-for-ytb-tiktok.git
+cd remove-or-add-watermark-for-ytb-tiktok
 ```
 
 #### Créer un environnement Python virtuel
@@ -198,7 +236,7 @@ Le fichier de configuration se trouve à : `nowatermark/.config/settings.json`
 1. **Créer la structure** :
 
    ```
-   WatermarkTool/
+   remove-or-add-watermark-for-ytb-tiktok/
    ├── nowatermark/
    │   ├── main.py
    │   ├── WatermarkTool.exe  (optionnel)
@@ -208,7 +246,9 @@ Le fichier de configuration se trouve à : `nowatermark/.config/settings.json`
    │   └── video1.mp4         (vos vidéos)
    │   └── video2.mp4
    ├── render/                (sera créé automatiquement)
-   └── README.md
+   ├── README.md
+   ├── LICENSE
+   └── .gitignore
    ```
 
 2. **Ajouter votre watermark** :
@@ -322,9 +362,11 @@ pyinstaller --onefile --name WatermarkTool --console nowatermark/main.py
 
 ## 🔗 Ressources externes
 
+- **GitHub du projet** : https://github.com/Nuxhi/remove-or-add-watermark-for-ytb-tiktok
 - **FFmpeg** : https://ffmpeg.org/download.html
 - **Documentation FFmpeg** : https://ffmpeg.org/documentation.html
 - **Overlay Filter FFmpeg** : https://ffmpeg.org/ffmpeg-filters.html#overlay-1
+- **Signaler un bug** : https://github.com/Nuxhi/remove-or-add-watermark-for-ytb-tiktok/issues
 
 ---
 
@@ -384,7 +426,13 @@ Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 🤝 Contribution
 
-Les contributions, suggestions et améliorations sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+Les contributions, suggestions et améliorations sont les bienvenues ! N'hésitez pas à :
+
+- Ouvrir une issue pour signaler un bug ou proposer une feature
+- Fork le projet et soumettre une pull request
+- Partager le projet si vous le trouvez utile
+
+**Repository** : https://github.com/Nuxhi/remove-or-add-watermark-for-ytb-tiktok
 
 ---
 
