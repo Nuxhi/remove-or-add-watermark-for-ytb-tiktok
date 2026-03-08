@@ -176,7 +176,7 @@ Le fichier de configuration se trouve à : `nowatermark/.config/settings.json`
   "largeur_watermark": null,
   "qualite_crf": 0,
   "codec_video": "libx264",
-  "preset_encodage": "veryslow",
+  "preset_encodage": "slow",
   "extensions_video": [".mp4", ".mov", ".mkv", ".avi", ".webm", ".flv"]
 }
 ```
